@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 describe Contact do
+  it "has three phone numbers" do
+    expect(FactoryGirl.create(:contact).phone_numbers.count).to eq 3
+  end
+
   it "is valid with a firstname and a lastname" do
     contact = FactoryGirl.build(:contact)
-    p contact
     expect(contact).to be_valid
   end
 
@@ -24,8 +27,8 @@ describe Contact do
   end
 
   it "returns a contacts full name as a string" do
-    john = FactoryGirl.build(:contact)
-    expect(john.fullname).to eq "John Doe"
+    contact = FactoryGirl.build(:contact)
+    expect(contact.fullname).to eq "#{contact.firstname} #{contact.lastname}"
   end
 
   describe "filter last name by letter" do

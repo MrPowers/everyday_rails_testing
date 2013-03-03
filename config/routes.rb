@@ -1,4 +1,10 @@
 EverydayRailsTestingWithRspec::Application.routes.draw do
+  resources :messages
+
+
+  resources :posts
+
+
   resources :phone_numbers
 
 

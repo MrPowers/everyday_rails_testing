@@ -2,6 +2,7 @@ class Contact < ActiveRecord::Base
   attr_accessible :firstname, :lastname, :email
   validates :firstname, :lastname, :presence => true
   validates :email, :uniqueness => true
+  validates :phone_numbers, :length => { :is => 3 }
   has_many :phone_numbers
 
   def fullname
